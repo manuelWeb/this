@@ -1,0 +1,29 @@
+{
+  "name": "javascript-this-is-it",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example codes for the “JavaScript: this is it” screencast by Delicious Insights",
+  "scripts": {
+    "demo:autobind": "node --require='@babel/register' 21-guarantee-decorator.js"
+  },
+  "author": "Christophe Porteneuve <christophe@delicious-insights.com> (https://delicious-insights.com/)",
+  "license": "MIT",
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/register": "^7.5.5"
+  },
+  "dependencies": {
+    "autobind-decorator": "^2.4.0"
+  }
+}

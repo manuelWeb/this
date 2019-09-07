@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Comportement API-spécifique de this : jQuery.on() • JavaScript: this is it</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Comportement API-spécifique de <code>this</code> : le <code>.on()</code>de jQuery.</h1>
+  <p>Ouvrez la console pour constater les résultats.</p>
+  <p><a href="#" id="soloLink">Cliquez sur ce lien</a></p>
+  <ul id="list">
+    <li><a href="#">Cliquez sur ce premier lien</a></li>
+    <li><a href="#">Cliquez sur ce second lien</a></li>
+  </ul>
+
+  <script>
+    // Exemple d’override `this` spécifique API : les événements en jQuery
+    // (et en fait, la gestion événementielle du DOM).
+    //
+    // jQuery invoque les gestionnaires avec un `this` calé soit sur l’élément
+    // ayant reçu un appel `.on()` sans délégation, soit sur l’élément
+    // satisfaisant le sélecteur de délégation pour cet appel.
+    $('#soloLink').on('click', function() {
+      console.log('Clic sur élément direct : `this` est cet élément :', this)
+    })
+    $('#list').on('click', 'li', function(event) {
+      console.log('Clic sur élément délégué : `this` est le délégué :', this)
+      console.log('C’est potentiellement différent de `target` :', event.target)
+      console.log('Mais ça correspond à `currentTarget` :', event.currentTarget)
+    })
+  </script>
+</body>
+</html>
