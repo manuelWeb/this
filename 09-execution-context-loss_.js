@@ -5,7 +5,7 @@
 const course = {
   heading: 'JavaScript: this is it',
 
-  runDumbCampaign () {
+  runDumbCampaign() {
     // Ici, `this` va marcher vu l’învocation Sujet-Verbe-Complément
     console.log(`Notre cours “${this.heading}” vient de sortir !`)
     // => 'Notre cours “JavaScript: this is it” vient de sortir !'
@@ -21,4 +21,4 @@ const course = {
   }
 }
 
-course.bind(this).runDumbCampaign()
+course.runDumbCampaign()
